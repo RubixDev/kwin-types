@@ -1,0 +1,11 @@
+{
+    "name": "kwin-types",
+    "version": "0.1.0",
+    "description": "Type declarations for KWin's scripting API",
+    "types": "out/kwin.d.ts",
+    "scripts": {
+        "bundle": "bin/bundle.sh"
+    },
+    "author": "RubixDev",
+    "license": "GPL-2.0-only"
+}
