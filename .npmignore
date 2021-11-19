@@ -1,0 +1,6 @@
+src/
+bin/
+.vscode/
+
+tsconfig.json
+.gitattributes
