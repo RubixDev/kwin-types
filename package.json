@@ -1,5 +1,5 @@
 {
-    "name": "kwin-types",
+    "name": "@types/kwin",
     "version": "0.1.0",
     "description": "Type declarations for KWin's scripting API",
     "types": "out/kwin.d.ts",
