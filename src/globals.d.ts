@@ -35,12 +35,12 @@ declare function registerShortcut(
 ): boolean
 /**
  * Registers the callback for the screen edge. When the mouse gets pushed against the
- * given edge the callback will be invoked. Scripts can also add “X-KWin-Border-Activate”
- * to their metadata file to have the effect listed in the screen edges KCM. This will
+ * given edge the callback will be invoked. Scripts can also set “X-KWin-Border-Activate”
+ * to true in their metadata file to have the effect listed in the screen edges KCM. This will
  * write an entry BorderConfig= in the script configuration object with a list of ScreenEdges
  * the user has selected.
  */
-declare function registerScreenEdge(edge: number, callback: QJSValue): boolean
+declare function registerScreenEdge(edge: number, callback: () => void): boolean
 /**
  * Unregisters the callback for the screen edge. This will disconnect all callbacks from
  * this script to that edge.
@@ -48,7 +48,7 @@ declare function registerScreenEdge(edge: number, callback: QJSValue): boolean
 declare function unregisterScreenEdge(edge: number): boolean
 declare function registerTouchScreenEdge(
     edge: number,
-    callback: QJSValue
+    callback: () => void
 ): boolean
 declare function unregisterTouchScreenEdge(edge: number): boolean
 /**
@@ -57,7 +57,9 @@ declare function unregisterTouchScreenEdge(edge: number): boolean
  * added to the UserActionsMenu.
  * @param callback Script method to execute when the UserActionsMenu is about to be shown.
  */
-declare function registerUserActionsMenu(callback: QJSValue): void
+declare function registerUserActionsMenu(
+    callback: (client: KWin.AbstractClient) => void
+): void
 /**
  * Aborts the execution of the script if value does not evaluate to true. If message is
  * provided an error is thrown with the given message, if not provided an error with default
@@ -91,7 +93,11 @@ declare function assertNotNull(value: QVariant, message?: string): boolean
  * If message is provided an error is thrown with the given message, if not provided an error
  * with default message is thrown.
  */
-declare function assertEquals(expected: QVariant, actual: QVariant, message?: string): boolean
+declare function assertEquals(
+    expected: QVariant,
+    actual: QVariant,
+    message?: string
+): boolean
 //#endregion
 
 declare const workspace: KWin.QtScriptWorkspaceWrapper
