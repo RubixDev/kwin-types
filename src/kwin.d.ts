@@ -872,6 +872,10 @@ declare namespace KWin {
          * @see {@link WorkspaceWrapper.virtualScreenSize virtualScreenSize}
          */
         readonly virtualScreenGeometry: QRect
+        /**
+         * The current position of the cursor.
+         */
+        readonly cursorPos: QPoint
         //#endregion
 
         //#region Read-write Properties
@@ -985,6 +989,11 @@ declare namespace KWin {
          * @since 5.23
          */
         readonly currentVirtualDesktopChanged: Signal<() => void>
+        /**
+         * This signal is emitted when the cursor position changes.
+         * @see {@link cursorPos}
+         */
+        readonly cursorPosChanged: Signal<() => void>
         //#endregion
 
         //#region Functions
